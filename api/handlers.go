@@ -3,8 +3,9 @@ package api
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
-	"os"
+	"self-service-tooling/config" // Replace with your actual module path
 )
 
 // Struct to parse JSON payload from the frontend
@@ -15,17 +16,40 @@ type TerraformRequest struct {
 
 // GetTerraformCode handles fetching Terraform code from the selected repository and directory.
 func GetTerraformCode(w http.ResponseWriter, r *http.Request) {
+	// Get session
+	session, err := config.Store.Get(r, "session-name")
+	if err != nil {
+		http.Error(w, "Failed to get session: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	log.Println("Session values in GetTerraformCode:", session.Values)
+
+	// Check if the user is authenticated
+	authenticated, ok := session.Values["authenticated"].(bool)
+	if !ok || !authenticated {
+		log.Println("GitHub OAuth not completed for user:", session.Values["username"])
+		http.Error(w, "GitHub OAuth not completed", http.StatusUnauthorized)
+		return
+	}
+
+	// Get the GitHub access token from the session
+	token, ok := session.Values["github_access_token"].(string)
+	if !ok || token == "" {
+		http.Error(w, "GitHub token is not set", http.StatusInternalServerError)
+		return
+	}
+
 	repo := r.URL.Query().Get("repo")
 	dirPath := r.URL.Query().Get("dir")
-	token := os.Getenv("GITHUB_TOKEN") // Ensure the token is set as an environment variable
 
 	if repo == "" || dirPath == "" {
 		http.Error(w, "Repository or directory not specified", http.StatusBadRequest)
 		return
 	}
 
-	// Download the repository content into a local directory for Terraform operations.
-	err := DownloadRepositoryContent(repo, dirPath, token)
+	// Call the existing function from utils.go
+	err = DownloadRepositoryContent(repo, dirPath, token)
 	if err != nil {
 		http.Error(w, "Error fetching Terraform code: "+err.Error(), http.StatusInternalServerError)
 		return
@@ -58,6 +82,7 @@ func DeployTerraformCode(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, output)
 }
 
+// RunTerraformPlan handles running `terraform plan`.
 func RunTerraformPlan(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)

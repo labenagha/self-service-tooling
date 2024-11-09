@@ -1,0 +1,201 @@
+<!-- File: ui/select-directory.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Directory - {{.Repo}}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/ui/styles.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .card-title {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Self-Service Tooling</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb" class="mt-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/operations">Operations</a></li>
+                <li class="breadcrumb-item"><a href="/list-repos">List Repositories</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Select Directory</li>
+            </ol>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="row mt-4">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <!-- Recent Operations Card -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <strong>Recent Operations</strong>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Terraform Apply
+                            <span class="badge badge-success badge-pill">Success</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Terraform Plan
+                            <span class="badge badge-warning badge-pill">Pending</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Terraform Destroy
+                            <span class="badge badge-danger badge-pill">Failed</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Quick Links Card -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <strong>Quick Links</strong>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="#" onclick="terraformAction('plan')"><i class="fas fa-play mr-2"></i>Run Terraform Plan</a></li>
+                        <li class="list-group-item"><a href="#" onclick="terraformAction('apply')"><i class="fas fa-check mr-2"></i>Run Terraform Apply</a></li>
+                        <li class="list-group-item"><a href="#" onclick="terraformAction('destroy')"><i class="fas fa-ban mr-2"></i>Run Terraform Destroy</a></li>
+                        <li class="list-group-item"><a href="#" onclick="terraformAction('getcode')"><i class="fas fa-code mr-2"></i>Get Terraform Code</a></li>
+                        <li class="list-group-item"><a href="#"><i class="fas fa-book mr-2"></i>Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Dashboard -->
+            <div class="col-md-9">
+                <!-- Select Directory Card -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Select a Directory in {{.Repo}}</h5>
+                        <ul class="list-group">
+                            {{if .Directories}}
+                                {{range .Directories}}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    {{.}}
+                                    <!-- Form to select the directory -->
+                                    <form method="POST" action="/confirm-directory">
+                                        <input type="hidden" name="repo" value="{{$.Repo}}">
+                                        <input type="hidden" name="directory" value="{{.}}">
+                                        <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-check"></i> Select</button>
+                                    </form>
+                                </li>
+                                {{end}}
+                            {{else}}
+                                <p>No directories found in this repository.</p>
+                            {{end}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-4 text-center">
+            <small>© 2024 Custom Self Service Tooling. All rights reserved.</small>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <!-- External JavaScript Files -->
+    <script src="/ui/main.js"></script>
+    <script src="/ui/select-directory.js"></script>
+    <script src="/ui/list-repos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Function to perform Terraform actions
+        function terraformAction(action) {
+            const repo = "{{.Repo}}";
+            const directory = "{{.Directory}}";
+
+            if (!repo || !directory) {
+                displayFeedback('Please select a repository and directory first.', false);
+                return;
+            }
+
+            // Display loading indicator
+            const outputDiv = document.getElementById('output');
+            if (outputDiv) {
+                outputDiv.innerHTML = `<div class="spinner-border text-light" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                       </div>`;
+            }
+
+            fetch(`/terraform-${action}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ repo, directory })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text) });
+                }
+                return response.text();
+            })
+            .then(data => {
+                if (outputDiv) {
+                    outputDiv.innerHTML = `<pre>${escapeHtml(data)}</pre>`;
+                }
+            })
+            .catch(error => {
+                if (outputDiv) {
+                    outputDiv.innerHTML = `<div class="alert alert-danger" role="alert">${escapeHtml(error.message)}</div>`;
+                }
+            });
+        }
+
+        // Function to escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        // Function to display feedback messages
+        function displayFeedback(message, isSuccess = true) {
+            const outputDiv = document.getElementById('output');
+            if (outputDiv) {
+                if (isSuccess) {
+                    outputDiv.innerHTML = `<div class="alert alert-success" role="alert">${escapeHtml(message)}</div>`;
+                } else {
+                    outputDiv.innerHTML = `<div class="alert alert-danger" role="alert">${escapeHtml(message)}</div>`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
