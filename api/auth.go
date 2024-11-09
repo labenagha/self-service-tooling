@@ -43,10 +43,6 @@ var githubOauthConfig = &oauth2.Config{
 // 	http.Redirect(w, r, url, http.StatusTemporaryRedirect)
 // }
 
-// func generateState() string {
-// 	return fmt.Sprintf("%d", time.Now().UnixNano())
-// }
-
 // GitHubCallbackHandler handles the OAuth callback from GitHub
 func GitHubCallbackHandler(w http.ResponseWriter, r *http.Request) {
 	code := r.URL.Query().Get("code")
