@@ -115,7 +115,7 @@ body > p {
     font-family: Kreon;
     font-size: 15px;
     justify-content: space-between;
-    display: flex;
+    display: block;
     margin-left: 70px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -123,6 +123,19 @@ body > p {
 .box1:hover {
     background-color: darkgreen;
     transform: scale(1.05);
+}
+.hidden-box1 {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 50px;
+    color: lightslategray;
+}
+.hidden-box1.show {
+    display: block;
 }
 
 .box2 {
@@ -134,16 +147,29 @@ body > p {
     border-radius: 8px;
     font-family: Kreon;
     justify-content: space-between;
-    display: flex;
+    display: block;
     margin-left: 70px;
     font-size: 15px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 .box2:hover {
     background-color: darkred;
     transform: scale(1.05);
 }
+.hidden-box2 {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 50px;
+    color: lightslategray;
+}
+.hidden-box2.show {
+    display: block;
+}
+
 
 .box1 .plus-btn {
     margin-left: 90px;
@@ -156,14 +182,14 @@ body > p {
     cursor: pointer;
 }
 
-.box2 .plus-btn {
+.box2 .second-plus-btn {
     margin-left: 90px;
     padding: 8px 12px;     
     background-color: white; 
     color: red;      
     border: none;        
     border-radius: 15px; 
-    font-size: 30px;    
+    font-size: 30px;
     cursor: pointer;  
 }
 
@@ -225,7 +251,7 @@ body > p {
     background-color: blue;
     transform: scale(1.05);
 }
-.hidden-box {
+/* .hidden-box {
     display: none;
     margin-top: 10px;
     padding: 10px;
@@ -236,7 +262,7 @@ body > p {
 }
 .hidden-box.show {
     display: flex;
-}
+} */
 
 
 .box4 .tfplan-plus-btn {
