@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Gloock&family=Kreon:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+nav > img {
+    height: 40px;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+nav {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center; 
+}
+
+nav > ul {
+    font-family: Kreon;
+    font-weight: 100;
+}
+
+ul .side {
+    color: white;
+    margin: 5px;
+    padding: 2px;
+    list-style-type: none;
+}
+
+ul .logout {
+    color: white;
+    padding: 10px;
+}
+
+.center-line {
+    border-bottom: 2px solid black;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-weight: 50;
+    font-family: "Crimson Text", serif;
+    margin-top: 0px;
+    margin-left: 40px;
+    position: relative;
+}
+
+h3 {
+    margin-left: 40px;
+}
+
+h2 {
+    margin-left: 50px;
+}
+
+div {
+    display: flex;
+    gap: 100px;
+}
+
+body {
+    margin: 0;
+    padding-left: 200px;
+    padding-right: 100px;
+    font-family: "Crimson Text", serif;
+}
+
+body > p {
+    margin-left: 40px;
+    font-family: "Crimson Text", serif;
+    font-style: italic;
+    position: relative;
+    top: -40px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    nav .side, nav .logout {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .side, nav .logout {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+.box1 {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    width: 200%;
+    text-align: center;
+    border-radius: 8px;
+    font-family: Kreon;
+    font-size: 15px;
+    justify-content: space-between;
+    display: flex;
+    margin-left: 70px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.box1:hover {
+    background-color: darkgreen;
+    transform: scale(1.05);
+}
+
+.box2 {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    width: 200%;
+    text-align: center;
+    border-radius: 8px;
+    font-family: Kreon;
+    justify-content: space-between;
+    display: flex;
+    margin-left: 70px;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.box2:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+}
+
+.box1 .plus-btn {
+    margin-left: 90px;
+    padding: 8px 12px;     
+    background-color: white; 
+    color: green;      
+    border: none;        
+    border-radius: 15px;
+    font-size: 30px;    
+    cursor: pointer;
+}
+
+.box2 .plus-btn {
+    margin-left: 90px;
+    padding: 8px 12px;     
+    background-color: white; 
+    color: red;      
+    border: none;        
+    border-radius: 15px; 
+    font-size: 30px;    
+    cursor: pointer;  
+}
+
+.box3 {
+    padding: 5px;
+    width: 45%;
+    text-align: center;
+    border-radius: 8px;
+    font-family: Kreon;
+    margin-top: 10px;
+    margin-bottom: 80px;
+    margin-left: 40px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box4 {
+    padding: 5px;
+    width: 45%;
+    text-align: center;
+    border-radius: 8px;
+    font-family: Kreon;
+    margin-top: 10px;
+    margin-bottom: 80px;
+    margin-left: 40px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box5 {
+    padding: 5px;
+    width: 45%;
+    text-align: center;
+    border-radius: 8px;
+    font-family: Kreon;
+    margin-top: 10px;
+    margin-bottom: 80px;
+    margin-left: 40px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box3 .get-plus-btn {
+    background-color: black;    
+    border: none;        
+    border-radius: 5px; 
+    font-size: 20px;    
+    cursor: pointer;
+    padding: 5px 10px;
+    color: white;
+}
+.get-plus-btn:hover {
+    background-color: blue;
+    transform: scale(1.05);
+}
+.hidden-box {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: yellow;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 100px;
+}
+.hidden-box.show {
+    display: flex;
+}
+
+
+.box4 .tfplan-plus-btn {
+    background-color: black;
+    border: none;        
+    border-radius: 5px; 
+    font-size: 20px;    
+    cursor: pointer;
+    padding: 5px 10px;
+    color: white;
+}
+.tfplan-plus-btn:hover {
+    background-color: blue;
+    transform: scale(1.05);
+}
+.hidden-box {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: yellow;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 100px;
+}
+.hidden-box.show {
+    display: flex;
+}
+
+.box5 .tfapply-plus-btn {
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: white;
+}
+.tfapply-plus-btn:hover {
+    background-color: blue;
+    transform: scale(1.05);
+}
+.hidden-box {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: yellow;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 100px;
+}
+.hidden-box.show {
+    display: flex;
+}
+
+body > h3 > div {
+    margin-top: 10px;
+}
+
+body > h3 > div {
+    margin-top: 30px;
+}
+
