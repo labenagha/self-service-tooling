@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./apply.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="./index.html" class="logo">
+            <img src="./assets/logo.jpg" alt="my logo">
+        </a>
+        <ul>
+            <a href=""><p class="side">Project</p></a>
+            <a href=""><p class="side">Version Control</p></a>
+            <a href=""><p class="side">Settings</p></a>
+            <a href=""><p class="logout">LogOut</p></a>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Terraform Apply</h2>
+        <div class="output-section">
+            <h3>Terraform Output</h3>
+            <pre id="terraform-output">
+                <!-- Terraform output logs will appear here -->
+                Running Terraform Apply...
+            </pre>
+        </div>
+        <div class="action-buttons">
+            <button id="approve-btn" class="btn approve">Approve</button>
+            <button id="cancel-btn" class="btn cancel">Cancel</button>
+        </div>
+    </div>
+    <script src="./scripts/apply.js"></script>
+</body>
+</html>
