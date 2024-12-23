@@ -1,6 +1,7 @@
 # self-service-tooling
 
-self-service-tooling/
+## self-service-tooling/
+shell`
 ├── cmd/
 │   └── main.go
 ├── config/
@@ -21,3 +22,4 @@ self-service-tooling/
 ├── .env.example
 ├── go.mod
 └── go.sum
+`
