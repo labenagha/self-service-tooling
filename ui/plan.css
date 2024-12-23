@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Gloock&family=Kreon:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+nav {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center; 
+}
+
+nav > ul {
+    font-family: Kreon;
+    font-weight: 100;
+}
+
+ul .side {
+    color: white;
+    margin: 5px;
+    padding: 2px;
+    list-style-type: none;
+}
+
+ul .logout {
+    color: white;
+    padding: 10px;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5; /* Light background for the entire page */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Row: Title and Add Variable Button */
+.header-row {
+    display: flex;
+    justify-content: space-between; /* Space between title and button */
+    align-items: center;            /* Vertically center them */
+    margin-bottom: 20px;            /* Spacing below header row */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #0a66ff; /* Bright-blue color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0053d6;
+    transform: scale(1.03);
+}
+
+/* Save Button Specific Styling */
+.save-button {
+    display: block;            /* Ensure it behaves like a block element */
+    width: 100%;               /* Full width for better visibility */
+    margin-top: 20px;          /* Space above the button */
+}
+
+/* Hidden Class to Hide Elements */
+.hidden {
+    display: none;
+}
+
+/* Variable Block Styling */
+.variable-block {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fafafa;
+    position: relative; /* To position the remove button */
+}
+
+/* Remove Variable Button Styling */
+.remove-variable-btn {
+    background-color: #ff4d4d; /* Red color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.remove-variable-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+/* Layout for Key/Value Row and Checkboxes */
+.input-row {
+    display: flex;
+    flex-wrap: wrap;    /* Allows wrapping on smaller screens */
+    align-items: center;
+    gap: 20px;
+}
+
+/* Key & Value Group */
+.key-value-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+}
+
+/* Checkbox Label */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Input Fields Styling */
+.input-text {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 120px;
+    box-sizing: border-box;
+}
+
+/* Description Area */
+.description-row {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea {
+    margin-top: 5px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* User can resize up/down */
+    min-height: 50px;
+    box-sizing: border-box;
+}
+
+/* Saved Variables Table Styling */
+.variables-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.variables-table thead {
+    background-color: #f5f5f5;
+}
+
+.variables-table th,
+.variables-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.variables-table th {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.variables-table td {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+
+.variables-table thead {
+    background-color: #f5f5f5;
+}
+
+
+.saved-variables-section h3 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 20px;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Variable Item Styling */
+.variable-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.variable-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.variable-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.variable-item:last-child {
+    border-bottom: none;
+}
+
+.variable-key {
+    font-weight: bold;
+    font-size: 18px;
+    color: #0a66ff; /* Match the primary button color */
+}
+
+.variable-value {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.variable-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Variable Details Layout */
+.variable-item-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.variable-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.variable-details span {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.variable-details span i {
+    margin-right: 5px;
+    color: #0a66ff; /* Match primary color */
+}
+
+.variable-details p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Style for Delete Button */
+.delete-variable-btn {
+    background-color: #ff4d4d; /* Red color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.delete-variable-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .variable-item-content {
+        flex-direction: column;
+    }
+
+    .variable-details span {
+        font-size: 16px;
+    }
+
+    .variable-item p {
+        font-size: 13px;
+    }
+}
+
+/* Responsive Design for Table */
+@media (max-width: 600px) {
+    .variables-table th,
+    .variables-table td {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

@@ -40,26 +40,32 @@
     <h2 class="center-line">Trigger A Run</h2>
     <p>Generate a terraform output when you trigger a run</p>
 
-    <div>
-        <div class="box3">
-            Get Source Code
-            <button class="get-plus-btn" onclick="window.location.href='/login'">+</button>
-    </div>
-        <div 
-        class="box4">
-            Terraform Plan
-            <button class="tfplan-plus-btn">+</button>
-        <div class="hidden-box">
-            <p>This is the content that will appear when the button is clicked.</p>
+    <div class="box-container">
+        <!-- Box 1 -->
+        <div class="box box3">
+          <button class="get-plus-btn">+</button>
+          <span class="box-title">Get Source Code</span>
         </div>
-    </div>
-    <div class="box5">
-        Terraform Apply
-        <button class="tfapply-plus-btn">+</button>
-        <div class="hidden-box">
-            <p>This is the content that will appear when the button is clicked.</p>
+      
+        <!-- Box 2 -->
+        <div class="box box4">
+          <button class="tfplan-plus-btn" onclick="window.location.href='terraform-plan.html'">+</button>
+          <span class="box-title">Terraform Plan</span>
+          <div class="hidden-box">
+            <p>Plan output will appear here.</p>
+          </div>
         </div>
-    </div>
+        
+        <!-- Box 3 -->
+        <div class="box box5">
+          <button class="tfapply-plus-btn">+</button>
+          <span class="box-title">Terraform Apply</span>
+          <div class="hidden-box">
+            <p>Apply output will appear here.</p>
+          </div>
+        </div>
+      </div>
+      
     <script src="./scripts.js"></script>
 </body>
 </html>
