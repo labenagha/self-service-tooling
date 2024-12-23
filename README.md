@@ -1,7 +1,8 @@
-# self-service-tooling
+# Self-Service Tooling
 
-## self-service-tooling/
-shell`
+## Project Structure
+
+```shell
 ├── cmd/
 │   └── main.go
 ├── config/
@@ -22,4 +23,3 @@ shell`
 ├── .env.example
 ├── go.mod
 └── go.sum
-`
