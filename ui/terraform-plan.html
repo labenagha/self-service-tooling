@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Terraform Plan Details</title>
+    <link rel="stylesheet" href="./plan.css" />
+    <!-- Add Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papjv4C0MliXHJpLEjE8JJNmwtc8t2nAViDJ1P86kGJf3QVWHh7AyqfI+0Pr2Paa6jTKyuU3q+k8W5rJBMn8qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+  <body>
+    <nav class="navbar">
+        <a href="./index.html" class="logo">
+            <img src="./assets/logo.jpg" alt="my logo">
+        </a>
+        <ul>
+            <a href=""><p class="side">Project</p></a>
+            <a href=""><p class="side">Version Control</p></a>
+            <a href=""><p class="side">Settings</p></a>
+            <a href=""><p class="logout">LogOut</p></a>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Header Row: Title and Add Variable Button -->
+        <div class="header-row">
+            <h2>Terraform Plan Details</h2>
+            <button id="add-variable-button" class="btn-primary">Add Variable</button>
+        </div>
+
+        <!-- Container for Dynamic Variable Input Fields -->
+        <div id="variables-container"></div>
+
+        <!-- Save Variables Button, Initially Hidden -->
+        <button id="save-button" class="btn-primary save-button hidden">Save Variables</button>
+
+        <!-- Section to Display Saved Variables -->
+        <div class="saved-variables-section">
+            <h3>Saved Terraform Variables</h3>
+            <div id="saved-variables-container">
+                <!-- Saved variables will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+  
+      <!-- Link to external JavaScript file -->
+      <script src="./terraform-plan.js"></script>
+    </body>
+</html>

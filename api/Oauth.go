@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"context"
@@ -40,26 +40,11 @@ func init() {
 	}
 }
 
-func main() {
-	// Serve static files (HTML, CSS, JS)
-	fs := http.FileServer(http.Dir("./ui"))
-	http.Handle("/", fs)
-
-	// OAuth routes
-	http.HandleFunc("/login", loginHandler)
-	http.HandleFunc("/auth/github/callback", callbackHandler)
-
-	// Start the server
-	port := ":8080"
-	fmt.Printf("Server running at http://localhost%s\n", port)
-	log.Fatal(http.ListenAndServe(port, nil))
-}
-
-// loginHandler redirects the user to GitHub for login
-func loginHandler(w http.ResponseWriter, r *http.Request) {
+// LoginHandler redirects the user to GitHub for login
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Login handler triggered")
 
-	// Generate state and set cookie
+	// Generate state and set cookie for CSRF protection
 	state := randomState()
 	http.SetCookie(w, &http.Cookie{
 		Name:  "oauthstate",
@@ -71,8 +56,8 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, authURL, http.StatusTemporaryRedirect)
 }
 
-// callbackHandler processes the GitHub OAuth callback
-func callbackHandler(w http.ResponseWriter, r *http.Request) {
+// CallbackHandler processes the GitHub OAuth callback
+func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Callback handler triggered")
 
 	// Validate state to prevent CSRF
