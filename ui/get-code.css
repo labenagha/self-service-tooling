@@ -57,6 +57,11 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
     color: #333;
+    font-weight: 300;
+}
+
+div > p {
+    text-align: center;
 }
 
 .form-group {
@@ -68,6 +73,13 @@ label {
     display: block;
     margin-bottom: 8px;
     color: #555;
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+}
+
+#repoName {
+    font-family: "Crimson Text", serif; 
+    font-weight: bold;
 }
 
 input[type="text"] {
@@ -85,7 +97,7 @@ input[type="text"] {
     background-color: #28a745; 
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -97,12 +109,19 @@ input[type="text"] {
 
 /* New class for Save Settings button */
 .btn-save {
-    background-color: #007bff; 
+    background-color: darkblue; 
     color: #fff;
+    font-family: "Crimson Text", serif;
+    border-radius: 40px;
+    width: 150px;
+    height: 40px;
+    margin-left: 15rem;
+    text-align: center;
+    font-weight: 900;
 }
 
 .btn-save:hover {
-    background-color: #0056b3;
+    background-color: darkgreen;
 }
 
 .output {
@@ -141,4 +160,9 @@ input[type="text"] {
     ul .side, ul .logout {
         margin: 0 10px;
     }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 200px;
 }

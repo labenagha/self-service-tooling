@@ -89,7 +89,14 @@ body {
 .save-button {
     display: block;           
     width: 100%;            
-    margin-top: 20px;    
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    font-family: "Crimson Text", serif;
+    text-align: center;
+    font-weight: 600;
+    margin-left: 660px;
 }
 
 /* Hidden Class to Hide Elements */
@@ -104,7 +111,7 @@ body {
     padding: 15px;
     margin-bottom: 15px;
     background-color: #fafafa;
-    position: relative; 
+    position: relative;
 }
 
 /* Remove Variable Button Styling */
@@ -112,17 +119,18 @@ body {
     background-color: #ff4d4d;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 5px 10px;
     font-size: 12px;
     cursor: pointer;
     position: absolute;
     top: 15px;
     right: 15px;
+    font-family: "Crimson Text", serif;
 }
 
 .remove-variable-btn:hover {
-    background-color: #cc0000;
+    background-color: darkred;
     transform: scale(1.05);
 }
 
@@ -137,7 +145,7 @@ body {
 /* Key & Value Group */
 .key-value-group {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap;
     align-items: center;
 }
@@ -224,6 +232,7 @@ body {
 .actions {
     display: flex;
     gap: 10px;
+    margin-left: 360px;
 }
 
 .edit-btn,
@@ -237,7 +246,7 @@ body {
 }
 
 .edit-btn {
-    background-color: #007bff;
+    background-color: blue;
     color: #fff;
 }
 
@@ -246,7 +255,7 @@ body {
 }
 
 .delete-btn {
-    background-color: #dc3545;
+    background-color: red;
     color: #fff;
 }
 
@@ -395,4 +404,9 @@ body {
         flex-direction: column;
         gap: 5px;
     }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 100px;
 }

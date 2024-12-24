@@ -134,3 +134,7 @@ input[type="password"] {
 .btn-create-account:hover {
     background-color: coral;
 }
+
+.footer {
+    text-align: center;
+}

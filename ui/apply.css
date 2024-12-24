@@ -121,3 +121,8 @@ h2 {
 .cancel:hover {
     background-color: #c82333;
 }
+
+.footer {
+    text-align: center;
+    margin-top: 300px;
+}

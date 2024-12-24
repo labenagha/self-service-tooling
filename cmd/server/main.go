@@ -1,27 +1,41 @@
+// File: cmd/server/main.go
+
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
+	"os"
+
+	"self-service-tooling/api"
 )
 
 func main() {
+	// OAuth routes
+	http.HandleFunc("/auth/github/login", api.LoginHandler)
+	http.HandleFunc("/auth/github/callback", api.CallbackHandler)
 
-	// Serve static files (HTML, CSS, JS) from ./ui
-	http.Handle("/", http.FileServer(http.Dir("./ui")))
+	// API routes
+	http.HandleFunc("/api/repos", api.GetReposHandler)
 
-	// OAuth routes (from api/oauth.go)
-	// http.HandleFunc("/login", api.LoginHandler)
-	// http.HandleFunc("/auth/github/callback", api.CallbackHandler)
+	// Form submission route
+	http.HandleFunc("/configure", api.ConfigureHandler)
 
-	// Additional API routes
-	// http.HandleFunc("/api/repositories", api.GetRepositoriesHandler)
-	// http.HandleFunc("/api/terraform/plan", api.TerraformPlanHandler)
-	// http.HandleFunc("/api/terraform/apply", api.TerraformApplyHandler)
+	// Debug endpoint (remove in production)
+	http.HandleFunc("/debug/session", api.DebugHandler)
+
+	// Serve static files from the 'ui' directory
+	// Ensure this is registered after API routes to prevent overriding
+	fs := http.FileServer(http.Dir("./ui"))
+	http.Handle("/", fs)
 
 	// Start the server
-	port := ":8080"
-	fmt.Printf("Server running at http://localhost%s\n", port)
-	log.Fatal(http.ListenAndServe(port, nil))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	log.Printf("Server started at http://localhost:%s", port)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }

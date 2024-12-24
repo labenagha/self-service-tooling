@@ -1,22 +1,57 @@
+// File: ui/scripts/get-code.js
 
-document.getElementById('codeForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const repoSelect = document.getElementById('repoName');
 
-    const repoName = document.getElementById('repoName').value.trim();
-    const folderName = document.getElementById('folderName').value.trim();
-    const subFoldersInput = document.getElementById('subFolders').value.trim();
-    const subFolders = subFoldersInput ? subFoldersInput.split(',').map(folder => folder.trim()) : [];
+    // Function to fetch repositories from the server
+    const fetchRepos = async () => {
+        try {
+            console.log('Fetching repositories from /api/repos');
+            const response = await fetch('/api/repos', {
+                method: 'GET',
+                credentials: 'include' // Include cookies for authentication
+            });
 
-    // Create a settings object
-    const settings = {
-        repoName,
-        folderName,
-        subFolders
+            console.log(`Received response: ${response.status}`);
+
+            if (!response.ok) {
+                throw new Error(`Failed to fetch repositories: ${response.statusText}`);
+            }
+
+            const repos = await response.json();
+            console.log(`Fetched ${repos.length} repositories`);
+
+            // Populate the select dropdown with repositories
+            repos.forEach(repo => {
+                const option = document.createElement('option');
+                option.value = repo.name;
+                option.textContent = repo.name;
+                repoSelect.appendChild(option);
+            });
+
+            if (repos.length === 0) {
+                const option = document.createElement('option');
+                option.value = "";
+                option.textContent = "No repositories found";
+                repoSelect.appendChild(option);
+                repoSelect.disabled = true;
+            }
+        } catch (error) {
+            console.error('Error fetching repositories:', error);
+            const option = document.createElement('option');
+            option.value = "";
+            option.textContent = "Error fetching repositories";
+            repoSelect.appendChild(option);
+            repoSelect.disabled = true;
+        }
     };
 
-    // Save settings to localStorage
-    localStorage.setItem('repoSettings', JSON.stringify(settings));
+    fetchRepos();
 
-    // Redirect back to the main page
-    window.location.href = 'index.html';
+    // Optional: Handle form submission
+    const form = document.getElementById('codeForm');
+    form.addEventListener('submit', (e) => {
+        // Add any client-side validation or processing here
+        // For now, it will submit normally
+    });
 });

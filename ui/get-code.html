@@ -14,28 +14,32 @@
             <a href=""><p class="side">Project</p></a>
             <a href=""><p class="side">Version Control</p></a>
             <a href=""><p class="side">Settings</p></a>
-            <a href=""><p class="logout">LogOut</p></a>
+            <a href="./logout.html"><p class="logout">LogOut</p></a>
         </ul>
     </nav>
     <div class="container">
         <h1>Configure Your Repository</h1>
-        <form id="codeForm">
+        <form id="codeForm" method="POST" action="/configure">
             <div class="form-group">
                 <label for="repoName">Repository Name:</label>
-                <input type="text" id="repoName" name="repoName" required>
+                <select id="repoName" name="repoName" required>
+                    <option value="repoName">Select a repository</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="folderName">Folder Name:</label>
                 <input type="text" id="folderName" name="folderName" required>
             </div>
             <div class="form-group">
-                <label for="subFolders">Sub-Folders (comma separated):</label>
-                <input type="text" id="subFolders" name="subFolders" placeholder="e.g., src,assets,tests">
+                <label for="subFolders">Sub-Folders (Optional: comma separated):</label>
+                <input type="text" id="subFolders" name="subFolders" placeholder="e.g. dev, qa, prod">
             </div>
             <button type="submit" class="btn btn-save">Save Settings</button>
         </form>
     </div>
-
+    <footer class="footer">
+        <small>© 2024 Tooling. All rights reserved.</small>
+    </footer>
     <script src="./scripts/get-code.js"></script>
 </body>
 </html>

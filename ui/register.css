@@ -135,3 +135,7 @@ input[type="password"]:focus {
         padding: 20px;
     }
 }
+
+.footer {
+    text-align: center;
+}
