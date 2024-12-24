@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.getElementById('createAccountBtn').addEventListener('click', function () {
+    // Redirect to the register page
+    window.location.href = 'register.html';
+});
+
 document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 

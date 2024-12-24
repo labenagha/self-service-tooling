@@ -302,3 +302,64 @@ body > h3 > div {
 body > h3 > div {
     margin-top: 30px;
 }
+
+.footer {
+    text-align: center;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    nav img {
+        height: 30px;
+        margin: 0;
+    }
+
+    nav ul {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        width: auto;
+    }
+
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .center-line {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .box-container {
+        flex-direction: column;
+        gap: 0px;
+    }
+}
