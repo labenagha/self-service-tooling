@@ -238,72 +238,6 @@ body > p {
     flex-direction: column;
 }
 
-/* .box3 .get-plus-btn {
-    background-color: black;    
-    border: none;        
-    border-radius: 5px; 
-    font-size: 20px;    
-    cursor: pointer;
-    padding: 5px 10px;
-    color: white;
-}
-.get-plus-btn:hover {
-    background-color: blue;
-    transform: scale(1.05);
-}
-
-.box4 .tfplan-plus-btn {
-    background-color: black;
-    border: none;        
-    border-radius: 5px; 
-    font-size: 20px;    
-    cursor: pointer;
-    padding: 5px 10px;
-    color: white;
-}
-.tfplan-plus-btn:hover {
-    background-color: blue;
-    transform: scale(1.05);
-}
-.hidden-box {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    font-family: monospace;
-    overflow: auto;
-}
-.hidden-box.show {
-    display: flex;
-}
-
-.box5 .tfapply-plus-btn {
-    background-color: black;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 5px 10px;
-    color: white;
-}
-.tfapply-plus-btn:hover {
-    background-color: blue;
-    transform: scale(1.05);
-}
-.hidden-box {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    font-family: monospace;
-    overflow: auto;
-}
-.hidden-box.show {
-    display: flex;
-} */
-
 /* Wrap the three boxes in a parent container */
 .box-container {
     display: flex;
@@ -368,4 +302,3 @@ body > h3 > div {
 body > h3 > div {
     margin-top: 30px;
 }
-

@@ -39,15 +39,16 @@ ul .logout {
 }
 
 .navbar .logo img:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1); 
 }
 
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #f0f2f5; /* Light background for the entire page */
+    margin-top: 30px;
+    padding-left: 200px;
+    padding-right: 100px;
+    font-family: "Crimson Text", serif;
 }
 
 .container {
@@ -62,14 +63,14 @@ body {
 /* Header Row: Title and Add Variable Button */
 .header-row {
     display: flex;
-    justify-content: space-between; /* Space between title and button */
-    align-items: center;            /* Vertically center them */
-    margin-bottom: 20px;            /* Spacing below header row */
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 /* Button Styling */
 .btn-primary {
-    background-color: #0a66ff; /* Bright-blue color */
+    background-color: darkblue;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -86,9 +87,9 @@ body {
 
 /* Save Button Specific Styling */
 .save-button {
-    display: block;            /* Ensure it behaves like a block element */
-    width: 100%;               /* Full width for better visibility */
-    margin-top: 20px;          /* Space above the button */
+    display: block;           
+    width: 100%;            
+    margin-top: 20px;    
 }
 
 /* Hidden Class to Hide Elements */
@@ -103,12 +104,12 @@ body {
     padding: 15px;
     margin-bottom: 15px;
     background-color: #fafafa;
-    position: relative; /* To position the remove button */
+    position: relative; 
 }
 
 /* Remove Variable Button Styling */
 .remove-variable-btn {
-    background-color: #ff4d4d; /* Red color */
+    background-color: #ff4d4d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -128,7 +129,7 @@ body {
 /* Layout for Key/Value Row and Checkboxes */
 .input-row {
     display: flex;
-    flex-wrap: wrap;    /* Allows wrapping on smaller screens */
+    flex-wrap: wrap;  
     align-items: center;
     gap: 20px;
 }
@@ -180,7 +181,7 @@ body {
     padding: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical; /* User can resize up/down */
+    resize: vertical;
     min-height: 50px;
     box-sizing: border-box;
 }

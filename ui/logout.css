@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Gloock&family=Kreon:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+nav > img {
+    height: 40px;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+nav {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-top: 20px;
+}
+
+nav > ul {
+    font-family: Kreon;
+    font-weight: 100;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul .side {
+    color: white;
+    margin: 10px 0;
+    padding: 2px;
+    list-style-type: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+ul .logout {
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-left: 40px;
+    margin-top: 1rem;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.logout-container {
+    margin: 100px 20px 50px 220px;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    width: calc(100% - 240px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.logout-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 100;
+    font-family: "Crimson Text", serif;
+}
+
+.logout-container p {
+    color: #555;
+    margin-bottom: 30px;
+    font-family: "Crimson Text", serif;
+}
+
+.logout-container .btn {
+    background-color: darkblue;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-container .btn:hover {
+    background-color: red;
+}
+
+@media (max-width: 600px) {
+    .logout-container {
+        margin: 120px 10px 50px 220px;
+        width: calc(100% - 240px);
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navbar .logo img {
+        margin-left: 20px;
+    }
+
+    nav > ul {
+        flex-direction: row;
+    }
+
+    ul .side, ul .logout {
+        margin: 0 10px;
+    }
+
+    .logout-container {
+        margin-left: 0;
+        width: 100%;
+    }
+}
