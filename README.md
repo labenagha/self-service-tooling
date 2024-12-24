@@ -1,4 +1,3 @@
-```markdown
 # Self-Service Tooling App
 
 This is a full-stack application for managing Terraform infrastructure runs and user authentication. It allows users to trigger Terraform actions like `Plan`, `Apply`, and `Destroy` through a responsive interface. The app is built with **Node.js**, **Express**, and **SQLite** for the backend, and vanilla **HTML**, **CSS**, and **JavaScript** for the ui.
