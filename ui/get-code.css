@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Gloock&family=Kreon:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+nav {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center; 
+}
+
+nav > ul {
+    font-family: Kreon;
+    font-weight: 100;
+}
+
+ul .side {
+    color: white;
+    margin: 5px;
+    padding: 2px;
+    list-style-type: none;
+}
+
+ul .logout {
+    color: white;
+    padding: 10px;
+}
+
+nav > img {
+    height: 40px;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+body {
+    margin: 0;
+    margin-top: 30px;
+    padding-left: 200px;
+    padding-right: 100px;
+    font-family: "Crimson Text", serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 100px auto 50px;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* New class for Save Settings button */
+.btn-save {
+    background-color: #007bff; 
+    color: #fff;
+}
+
+.btn-save:hover {
+    background-color: #0056b3;
+}
+
+.output {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+.output h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    nav {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .navbar .logo img {
+        margin-left: 20px;
+    }
+    
+    nav > ul {
+        flex-direction: row;
+    }
+    
+    ul .side, ul .logout {
+        margin: 0 10px;
+    }
+}

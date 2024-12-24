@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"self-service-tooling/api"
 )
 
 func main() {
@@ -13,13 +12,13 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("./ui")))
 
 	// OAuth routes (from api/oauth.go)
-	http.HandleFunc("/login", api.LoginHandler)
-	http.HandleFunc("/auth/github/callback", api.CallbackHandler)
+	// http.HandleFunc("/login", api.LoginHandler)
+	// http.HandleFunc("/auth/github/callback", api.CallbackHandler)
 
 	// Additional API routes
-	http.HandleFunc("/api/repositories", api.GetRepositoriesHandler)
-	http.HandleFunc("/api/terraform/plan", api.TerraformPlanHandler)
-	http.HandleFunc("/api/terraform/apply", api.TerraformApplyHandler)
+	// http.HandleFunc("/api/repositories", api.GetRepositoriesHandler)
+	// http.HandleFunc("/api/terraform/plan", api.TerraformPlanHandler)
+	// http.HandleFunc("/api/terraform/apply", api.TerraformApplyHandler)
 
 	// Start the server
 	port := ":8080"

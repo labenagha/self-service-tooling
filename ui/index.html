@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./home-page.css" rel="stylesheet">
+    <link href="./home.css" rel="stylesheet">
     <title>tooling</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="navbar">
         <img src="./assets/logo.jpg" class="logo" alt="my logo">
         <ul>
+            <a href="./index.html"><p class="side">Home</p></a>
             <a href=""><p class="side">Project</p></a>
             <a href=""><p class="side">Version Control</p></a>
             <a href=""><p class="side">Settings</p></a>
-            <a href=""><p class="logout">LogOut</p></a>
+            <a href="./logout.html"><p class="logout">LogOut</p></a>
         </ul>
     </nav>
-
     <h1 class="center-line">Explore</h1>
     <p>See your terraform details metrics</p>
     <h2>Details</h2>
-
     <div>
         <div class="box1">
             <span>Last Successful Run</span>
             <button class="plus-btn">+</button>
             <div class="hidden-box1">
-                <p>This is the content that will appear when the button is clicked.</p>
-            </div>
+              <p>This is the content that will appear when the button is clicked.</p>
+          </div>
         </div>
+
         <div class="box2">
             <span>Last Failed Run</span>
             <button class="second-plus-btn">+</button>
@@ -43,13 +44,13 @@
     <div class="box-container">
         <!-- Box 1 -->
         <div class="box box3">
-          <button class="get-plus-btn">+</button>
+          <button class="get-plus-btn" onclick="window.location.href='./get-code.html'">+</button>
           <span class="box-title">Get Source Code</span>
         </div>
       
         <!-- Box 2 -->
         <div class="box box4">
-          <button class="tfplan-plus-btn" onclick="window.location.href='terraform-plan.html'">+</button>
+          <button class="tfplan-plus-btn" onclick="window.location.href='./plan.html'">+</button>
           <span class="box-title">Terraform Plan</span>
           <div class="hidden-box">
             <p>Plan output will appear here.</p>
@@ -58,14 +59,14 @@
         
         <!-- Box 3 -->
         <div class="box box5">
-          <button class="tfplan-plus-btn" onclick="window.location.href='terraform-apply.html'">+</button>
+          <button class="tfplan-plus-btn" onclick="window.location.href='./apply.html'">+</button>
           <span class="box-title">Terraform Apply</span>
           <div class="hidden-box">
             <p>Apply output will appear here.</p>
           </div>
         </div>
       </div>
-      
-    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/home.js"></script>
+    <script src="./scripts/auth.js"></script>
 </body>
 </html>

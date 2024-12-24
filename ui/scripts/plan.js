@@ -1,5 +1,3 @@
-// terraform-plan.js
-
 // Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
     // Grab references to the container and the buttons

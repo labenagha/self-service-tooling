@@ -38,5 +38,5 @@ cancelBtn.addEventListener("click", () => {
     terraformOutput.textContent += "\nOperation canceled by user.";
 });
 
-// Start simulating Terraform output when the page loads
-simulateTerraformOutput();
+// // Start simulating Terraform output when the page loads
+// simulateTerraformOutput();

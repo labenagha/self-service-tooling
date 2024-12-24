@@ -39,15 +39,16 @@ ul .logout {
 }
 
 .navbar .logo img:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1);
 }
 
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
     margin: 0;
-    padding: 20px;
+    margin-top: 30px;
+    padding-left: 200px;
+    padding-right: 100px;
+    font-family: "Crimson Text", serif;
 }
 
 .container {
@@ -103,7 +104,7 @@ h2 {
 
 /* Approve Button */
 .approve {
-    background-color: #0a66ff;
+    background-color: darkblue;
     color: white;
 }
 
@@ -113,7 +114,7 @@ h2 {
 
 /* Cancel Button */
 .cancel {
-    background-color: #dc3545;
+    background-color: darkred;
     color: white;
 }
 
